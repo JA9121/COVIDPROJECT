@@ -62,7 +62,8 @@ ORDER BY TotalDeathCount DESC
 
 -- GLOBAL NUMBERS
 
-SELECT  date, SUM(new_cases) AS total_new_cases, SUM(CAST(new_deaths AS INT)) AS total_new_deaths, ROUND(SUM(CAST(new_deaths AS INT))/SUM(new_cases) * 100,2) AS DeathPercentage
+SELECT  date, SUM(new_cases) AS total_new_cases, SUM(CAST(new_deaths AS INT)) AS total_new_deaths,
+ROUND(SUM(CAST(new_deaths AS INT))/SUM(new_cases) * 100,2) AS DeathPercentage
 FROM PortfolioProjectJA91..CovidDeaths
 WHERE continent IS NOT NULL
 GROUP BY DATE
@@ -70,7 +71,8 @@ ORDER BY 1,2
 
 -- TOTAL WORLD NUMBERS
 
-SELECT  SUM(new_cases) AS total_new_cases, SUM(CAST(new_deaths AS INT)) AS total_new_deaths, ROUND(SUM(CAST(new_deaths AS INT))/SUM(new_cases) * 100,2) AS DeathPercentage
+SELECT  SUM(new_cases) AS total_new_cases, SUM(CAST(new_deaths AS INT)) AS total_new_deaths, 
+ROUND(SUM(CAST(new_deaths AS INT))/SUM(new_cases) * 100,2) AS DeathPercentage
 FROM PortfolioProjectJA91..CovidDeaths
 WHERE continent IS NOT NULL
 ORDER BY 1,2
